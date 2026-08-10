@@ -1,0 +1,33 @@
+---
+description: MARS project constraints — security, stack, and component rules
+globs:
+alwaysApply: true
+---
+
+# MARS Agent Rules
+
+## Stack
+
+- Next.js App Router + TypeScript
+- Tailwind CSS + shadcn/ui (no custom CSS files unless unavoidable)
+- Supabase for Auth, Postgres, Storage, RLS
+- Deploy on Cloudflare Workers via `@opennextjs/cloudflare` + Wrangler (not Vercel)
+- Domain/DNS on Cloudflare; email MX on Google Workspace
+
+## Security
+
+- Enforce Supabase RLS on every public table
+- Never expose `author_id` on reviews to browser/public clients — use `public_reviews` (or equivalent DTO) without that column
+- `SUPABASE_SERVICE_ROLE_KEY` is server-only; never ship it to the client
+- Review authors cannot UPDATE/DELETE their own reviews after insert (RLS)
+
+## Components
+
+- Functional components with TypeScript interfaces
+- Keep UI modular: presentational pieces (e.g. ReviewCard) separate from data fetchers (e.g. ReviewFeed)
+
+## Process
+
+- Plan Mode: before sweeping architecture changes, write a step-by-step plan and wait for approval
+- Write unit tests for API handlers and aggregation utilities before building the related UI
+- Prefer editing existing files; avoid drive-by refactors and unsolicited markdown docs

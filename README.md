@@ -1,3 +1,11 @@
+## Reviewer
+
+MARS is secure, verified performer reviews for pageantry arts. The stack in `package.json` is Next.js 16.3.0, React 19.2.8, TypeScript 5, Tailwind CSS 4, shadcn/ui, Supabase (`@supabase/ssr` and `@supabase/supabase-js`), Cloudflare Workers via `@opennextjs/cloudflare` and Wrangler, and Vitest.
+
+Search orgs, sign up, and pass KYC approval. A verified performer writes a review, and an admin publishes a public review that does not expose `author_id`.
+
+[project-spec.md](./project-spec.md) · [docs/DESIGN.md](./docs/DESIGN.md) · [docs/brand-mars.md](./docs/brand-mars.md) · [docs/review-taxonomy.md](./docs/review-taxonomy.md)
+
 # MARS — Marching Arts Review System
 
 Secure, verified performer reviews for pageantry arts (WGI, DCI, BOA).
